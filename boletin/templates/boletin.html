@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boletín Minero-Energético</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #1a1a1a; font-family: 'Inter', sans-serif; color: #e0e0e0; }
+    .wrapper { max-width: 900px; margin: 0 auto; background: #1a1a1a; }
+
+    /* HEADER */
+    .header { background: linear-gradient(135deg, #1b3a2a 0%, #2a4a2a 100%); border-bottom: 2px solid #4a7a4a; }
+    .header-cols { display: table; width: 100%; }
+    .header-col { display: table-cell; width: 50%; padding: 28px 32px 24px; vertical-align: top; }
+    .header-col-en { background: #1e2a1e; border-left: 1px solid #3a5a3a; }
+    .header-empresa { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #a0c8a0; margin-bottom: 6px; }
+    .header-titulo { font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 4px; line-height: 1.2; }
+    .header-subtitulo { font-size: 12px; color: #8aaa8a; margin-bottom: 14px; }
+    .header-rango { font-size: 11px; color: #7a9a7a; margin-bottom: 12px; }
+    .badge-total { display: inline-block; background: #2d5a2d; border: 1px solid #4a7a4a; color: #b0d8b0; font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 20px; }
+    .badge-total-en { background: #1a2a3a; border-color: #2a4a6a; color: #8aaac8; }
+
+    /* PAÍS HEADER */
+    .pais-header-row { display: table; width: 100%; background: #222; border-top: 1px solid #333; border-bottom: 1px solid #333; }
+    .pais-header-cell { display: table-cell; width: 50%; padding: 10px 32px; vertical-align: middle; }
+    .pais-header-cell-en { border-left: 1px solid #333; background: #1e1e1e; }
+    .pais-nombre { font-size: 12px; font-weight: 700; color: #c8a84b; letter-spacing: 1px; text-transform: uppercase; }
+
+    /* NOTICIAS */
+    .noticias-row { display: table; width: 100%; border-bottom: 1px solid #252525; }
+    .noticia-col { display: table-cell; width: 50%; padding: 14px 24px; vertical-align: top; }
+    .noticia-col-en { border-left: 1px solid #252525; background: #1c1c1c; }
+
+    /* CARD */
+    .card { background: #232323; border: 1px solid #2e2e2e; border-radius: 6px; padding: 14px 16px; border-left: 3px solid #4a7a4a; }
+    .card-en { border-left-color: #3a5a8a; }
+    .card-contrato { border-left-color: #c8a84b !important; }
+    .card-titulo a { font-size: 13px; font-weight: 600; color: #4a9a4a; text-decoration: none; line-height: 1.4; display: block; }
+    .card-titulo-en a { color: #6a9aba; }
+    .card-contrato .card-titulo a, .card-contrato .card-titulo-en a { color: #c8a84b; }
+    .card-meta { margin-top: 8px; font-size: 11px; color: #666; line-height: 1.8; }
+    .card-meta strong { color: #888; font-weight: 600; }
+    .label { color: #555; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .card-fecha { display: flex; align-items: center; gap: 4px; margin-top: 8px; font-size: 10px; color: #4a7a4a; font-weight: 600; }
+    .card-fecha-en { color: #3a5a8a; }
+    .card-contrato .card-fecha, .card-contrato .card-fecha-en { color: #c8a84b; }
+    .badge-contrato { display: inline-block; background: rgba(200,168,75,0.15); border: 1px solid rgba(200,168,75,0.4); color: #c8a84b; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 3px; letter-spacing: 1px; text-transform: uppercase; margin-left: 6px; }
+    .btn-ver { display: inline-block; margin-top: 10px; background: #2d3d2d; color: #a0c8a0; font-size: 11px; font-weight: 600; padding: 5px 14px; border-radius: 4px; text-decoration: none; border: 1px solid #3a5a3a; }
+    .btn-ver-en { background: #1e2a3a; color: #8aaac8; border-color: #2a3a5a; }
+
+    /* FOOTER */
+    .footer { background: #111; padding: 24px 32px; border-top: 1px solid #2a2a2a; text-align: center; }
+    .footer-text { font-size: 10px; color: #444; line-height: 1.8; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER DOS COLUMNAS (estilo APSea-Argos) -->
+  <div class="header">
+    <div class="header-cols">
+      <div class="header-col">
+        <div class="header-empresa">{{ empresa }}</div>
+        <div class="header-titulo">Actualización de Proyectos</div>
+        <div class="header-subtitulo">{{ subtitulo_es }}</div>
+        <div class="header-rango">Desde {{ fecha_desde }} hasta {{ fecha_hasta }}</div>
+        <div class="badge-total">Total de noticias encontradas: {{ total_noticias }}</div>
+      </div>
+      <div class="header-col header-col-en">
+        <div class="header-empresa">{{ empresa }}</div>
+        <div class="header-titulo">Project Updates</div>
+        <div class="header-subtitulo">{{ subtitulo_en }}</div>
+        <div class="header-rango">From {{ fecha_desde }} to {{ fecha_hasta }}</div>
+        <div class="badge-total badge-total-en">Total news found: {{ total_noticias }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTICIAS POR PAÍS -->
+  {% for pais, datos in paises.items() %}
+
+  <div class="pais-header-row">
+    <div class="pais-header-cell">
+      <span>{{ datos.flag }}</span>
+      <span class="pais-nombre"> {{ pais }} — {{ datos.noticias|length }} noticias</span>
+    </div>
+    <div class="pais-header-cell pais-header-cell-en">
+      <span>{{ datos.flag }}</span>
+      <span class="pais-nombre"> {{ datos.nombre_en }} — {{ datos.noticias|length }} news</span>
+    </div>
+  </div>
+
+  {% for n in datos.noticias %}
+  <div class="noticias-row">
+
+    <!-- ESPAÑOL -->
+    <div class="noticia-col">
+      <div class="card {% if n.es_contrato %}card-contrato{% endif %}">
+        <div class="card-titulo">
+          <a href="{{ n.url }}" target="_blank">
+            {{ n.titulo }}{% if n.es_contrato %} <span class="badge-contrato">Contrato</span>{% endif %}
+          </a>
+        </div>
+        <div class="card-meta">
+          <span class="label">Fuente:</span> <strong>{{ n.fuente }}</strong><br>
+          {% if n.resumen %}<span class="label">Resumen:</span> {{ n.resumen[:180] }}{% if n.resumen|length > 180 %}...{% endif %}{% endif %}
+        </div>
+        <div class="card-fecha">🗓 Fecha: {{ n.fecha_fmt }}</div>
+        <a href="{{ n.url }}" class="btn-ver" target="_blank">Ver más</a>
+      </div>
+    </div>
+
+    <!-- INGLÉS -->
+    <div class="noticia-col noticia-col-en">
+      <div class="card card-en {% if n.es_contrato %}card-contrato{% endif %}">
+        <div class="card-titulo card-titulo-en">
+          <a href="{{ n.url }}" target="_blank">
+            {{ n.titulo_en or n.titulo }}{% if n.es_contrato %} <span class="badge-contrato">Contract</span>{% endif %}
+          </a>
+        </div>
+        <div class="card-meta">
+          <span class="label">Source:</span> <strong>{{ n.fuente }}</strong><br>
+          {% set res = n.resumen_en or n.resumen %}
+          {% if res %}<span class="label">Summary:</span> {{ res[:180] }}{% if res|length > 180 %}...{% endif %}{% endif %}
+        </div>
+        <div class="card-fecha card-fecha-en">🗓 Dates: {{ n.fecha_fmt }}</div>
+        <a href="{{ n.url }}" class="btn-ver btn-ver-en" target="_blank">Read more</a>
+      </div>
+    </div>
+
+  </div>
+  {% endfor %}
+  {% endfor %}
+
+  <div class="footer">
+    <div class="footer-text">
+      Boletín generado automáticamente con inteligencia artificial · {{ fecha_hasta }}<br>
+      {{ total_noticias }} noticias · Chile · Perú · Argentina · Mining & Energy Intelligence
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

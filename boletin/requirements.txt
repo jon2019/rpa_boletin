@@ -1,0 +1,20 @@
+# Scraping
+feedparser==6.0.11
+httpx==0.27.0
+beautifulsoup4==4.12.3
+lxml==5.2.2
+
+# Base de datos
+psycopg2-binary==2.9.9
+
+# IA
+anthropic==0.28.0
+
+# Scheduler
+APScheduler==3.10.4
+
+# Templates HTML
+Jinja2==3.1.4
+
+# Utils
+python-dotenv==1.0.1
