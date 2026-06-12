@@ -1,0 +1,66 @@
+-- Modelo relacional generado a partir del diccionario de datos del proyecto
+
+CREATE TABLE fuentes (
+    url VARCHAR(500) PRIMARY KEY,
+    nombre VARCHAR(200) NOT NULL,
+    pais VARCHAR(50) NOT NULL,
+    activa BOOLEAN NOT NULL DEFAULT TRUE,
+    fecha_creacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE paises (
+    nombre VARCHAR(50) PRIMARY KEY,
+    cuota INTEGER DEFAULT 10,
+    descripcion TEXT DEFAULT NULL
+);
+
+CREATE TABLE ejecucion_fuentes (
+    url_fuente VARCHAR(500) NOT NULL,
+    fecha_ejecucion DATE NOT NULL,
+    nombre_fuente VARCHAR(200) NOT NULL,
+    scraping_ok BOOLEAN DEFAULT FALSE,
+    ia_ok BOOLEAN DEFAULT FALSE,
+    noticias_obtenidas INTEGER DEFAULT 0,
+    noticias_enviadas INTEGER DEFAULT 0,
+    error_detalle TEXT DEFAULT NULL,
+    fecha_registro TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (url_fuente, fecha_ejecucion),
+    FOREIGN KEY (url_fuente) REFERENCES fuentes(url)
+);
+
+CREATE TABLE noticias_enviadas (
+    url_hash VARCHAR(64) PRIMARY KEY,
+    titulo VARCHAR(500) NOT NULL,
+    fuente VARCHAR(200) NOT NULL,
+    pais VARCHAR(50) NOT NULL,
+    url VARCHAR(2000) NOT NULL,
+    enviado_en TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE envios_log (
+    fecha_envio DATE NOT NULL,
+    exito BOOLEAN DEFAULT FALSE,
+    noticias_enviadas INTEGER DEFAULT 0,
+    error_detalle TEXT DEFAULT NULL,
+    fecha_registro TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (fecha_envio)
+);
+
+CREATE TABLE score_reglas (
+    id SERIAL PRIMARY KEY,
+    regla VARCHAR(100) NOT NULL,
+    peso INTEGER DEFAULT 0,
+    descripcion TEXT DEFAULT NULL
+);
+
+CREATE TABLE score_empresas (
+    empresa VARCHAR(200) PRIMARY KEY,
+    tipo VARCHAR(50) NOT NULL,
+    descripcion TEXT DEFAULT NULL
+);
+
+CREATE TABLE score_keywords (
+    keyword VARCHAR(100) PRIMARY KEY,
+    peso INTEGER DEFAULT 0,
+    categoria VARCHAR(50) DEFAULT NULL
+);

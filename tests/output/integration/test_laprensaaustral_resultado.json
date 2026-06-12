@@ -1,0 +1,120 @@
+{
+  "timestamp_inicio": "2026-05-13 16:30:49",
+  "url": "https://laprensaaustral.cl",
+  "status_code": 200,
+  "html_size_chars": 242707,
+  "selector_viejo": ".articulos .noticia-titulo a",
+  "selector_nuevo": ".articulos .noticia-titulo a, .articulosCategoria .noticiaCategoria a",
+  "noticias_viejo": 14,
+  "noticias_nuevo": 120,
+  "adicionales": 106,
+  "distribucion_viejo": {
+    "2026/05": 14
+  },
+  "distribucion_nuevo": {
+    "2026/05": 42,
+    "2026/04": 9,
+    "2026/03": 6,
+    "2026/02": 2,
+    "2026/01": 3,
+    "2025/12": 2,
+    "2025/11": 15,
+    "2025/10": 4,
+    "2025/07": 4,
+    "2025/03": 1,
+    "2024/10": 10,
+    "2024/09": 9,
+    "2024/06": 1,
+    "2024/05": 1,
+    "2024/01": 1,
+    "2022/08": 4,
+    "2022/07": 4,
+    "2022/06": 1,
+    "2021/11": 1
+  },
+  "noticias_preview_nuevo": [
+    {
+      "titulo": "Seremi de Vivienda habla del “machetazo” de Grau: “En la región el recorte de subsidios para familias vulnerables fue de 58%”",
+      "url": "https://laprensaaustral.cl/2026/05/13/seremi-de-vivienda-habla-del-machetazo-de-grau-en-la-region-el-recorte-de-subsidios-para-familias-vulnerables-fue-de-58/"
+    },
+    {
+      "titulo": "Ejercicio, genes y envejecimiento: el estudio en Magallanes que busca medir el “rejuvenecimiento” celular en adultos mayores",
+      "url": "https://laprensaaustral.cl/2026/04/19/ejercicio-genes-y-envejecimiento-el-estudio-en-magallanes-que-busca-medir-el-rejuvenecimiento-celular-en-adultos-mayores/"
+    },
+    {
+      "titulo": "Kast y Boric desplazaron a los bloques tradicionales y el “Bianchismo” arrasó logrando primeras mayorías a nivel nacional",
+      "url": "https://laprensaaustral.cl/2021/11/22/kast-y-boric-desplazaron-a-los-bloques-tradicionales-y-el-bianchismo-arraso-logrando-primeras-mayorias-a-nivel-nacional/"
+    },
+    {
+      "titulo": "Elecciones en Magallanes: la derecha tradicional se derrumba, el “bianchismo” se consolida y Jara logra mayor diferencia con Kast",
+      "url": "https://laprensaaustral.cl/2025/11/17/elecciones-en-magallanes-la-derecha-tradicional-se-derrumba-el-bianchismo-se-consolida-y-jara-logra-mayor-diferencia-con-kast/"
+    },
+    {
+      "titulo": "Formalizan a Américo por violencia intrafamiliar contra Yamila Reyna: quedó con arraigo y prohibición de acercarse",
+      "url": "https://laprensaaustral.cl/2026/05/12/formalizan-a-americo-por-violencia-intrafamiliar-contra-yamila-reyna-quedo-con-arraigo-y-prohibicion-de-acercarse/"
+    },
+    {
+      "titulo": "Estudio de la Umag revela brechas en el uso de plataformas virtuales: estudiantes piden más apoyo y mejor interacción",
+      "url": "https://laprensaaustral.cl/2026/05/10/estudio-de-la-umag-revela-brechas-en-el-uso-de-plataformas-virtuales-estudiantes-piden-mas-apoyo-y-mejor-interaccion/"
+    },
+    {
+      "titulo": "Fundación Integra conmemoró 35 años de historia con reconocimiento a sus trabajadores y una muestra fotográfica",
+      "url": "https://laprensaaustral.cl/2025/11/03/fundacion-integra-conmemoro-35-anos-de-historia-con-reconocimiento-a-sus-trabajadores-y-una-muestra-fotografica/"
+    },
+    {
+      "titulo": "Estudiantes de Gastronomía del Liceo Luis Cruz Martínez fueron reconocidos tras participar en evento internacional",
+      "url": "https://laprensaaustral.cl/2026/05/13/estudiantes-de-gastronomia-del-liceo-luis-cruz-martinez-fueron-reconocidos-tras-participar-en-evento-internacional/"
+    },
+    {
+      "titulo": "“Nos preocupa la situación del aeródromo de la provincia, porque hicimos un trabajo arduo para tener vuelos constantes”",
+      "url": "https://laprensaaustral.cl/2026/05/13/nos-preocupa-la-situacion-del-aerodromo-de-la-provincia-porque-hicimos-un-trabajo-arduo-para-tener-vuelos-constantes/"
+    },
+    {
+      "titulo": "Profesores y asistentes sorprendieron con shows musicales y personajes en celebración del Día del Estudiante",
+      "url": "https://laprensaaustral.cl/2026/05/13/profesores-y-asistentes-sorprendieron-con-shows-musicales-y-personajes-en-celebracion-del-dia-del-estudiante/"
+    },
+    {
+      "titulo": "Prodemu impartió taller informativo para mujeres y jóvenes del Programa Familias de Acogida de Puerto Natales",
+      "url": "https://laprensaaustral.cl/2026/05/06/prodemu-impartio-taller-informativo-para-mujeres-y-jovenes-del-programa-familias-de-acogida-de-puerto-natales/"
+    },
+    {
+      "titulo": "“Tenemos que seguir convenciendo a las autoridades que el desarrollo de Tierra del Fuego está en Pampa Guanaco”",
+      "url": "https://laprensaaustral.cl/2024/10/21/tenemos-que-seguir-convenciendo-a-las-autoridades-que-el-desarrollo-de-tierra-del-fuego-esta-en-pampa-guanaco/"
+    },
+    {
+      "titulo": "Debates del EDR: amenazas a la libertad de expresión, protección a las redacciones y sostenibilidad de la industria",
+      "url": "https://laprensaaustral.cl/2025/10/01/debates-del-edr-amenazas-a-la-libertad-de-expresion-proteccion-a-las-redacciones-y-sostenibilidad-de-la-industria/"
+    },
+    {
+      "titulo": "“Las regiones están ocupando un papel importante en el desarrollo de Chile, y los medios son parte integral de ellas”",
+      "url": "https://laprensaaustral.cl/2025/10/01/las-regiones-estan-ocupando-un-papel-importante-en-el-desarrollo-de-chile-y-los-medios-son-parte-integral-de-ellas/"
+    },
+    {
+      "titulo": "“Es urgente terminar con estos vacíos legales”: diputados piden regular a corredores de propiedades",
+      "url": "https://laprensaaustral.cl/2026/05/13/es-urgente-terminar-con-estos-vacios-legales-diputados-piden-regular-a-corredores-de-propiedades/"
+    },
+    {
+      "titulo": "Denuncian evento de autos en Lampa donde extranjeros competían por usar los parlantes más fuertes",
+      "url": "https://laprensaaustral.cl/2026/05/12/denuncian-evento-de-autos-en-lampa-donde-extranjeros-competian-por-usar-los-parlantes-mas-fuertes/"
+    },
+    {
+      "titulo": "A dos meses de asumir: Kast critica “alza de tono” de la oposición y defiende recortes de presupuestos",
+      "url": "https://laprensaaustral.cl/2026/05/12/a-dos-meses-de-asumir-kast-critica-alza-de-tono-de-la-oposicion-y-defiende-recortes-de-presupuestos/"
+    },
+    {
+      "titulo": "Megatransecto Patagonia: la mayor cartografía científica de los bosques submarinos del sur de Chile",
+      "url": "https://laprensaaustral.cl/2026/05/04/megatransecto-patagonia-la-mayor-cartografia-cientifica-de-los-bosques-submarinos-del-sur-de-chile/"
+    },
+    {
+      "titulo": "Inach cierra la temporada científica con avances en monitoreo climático y 40 proyectos en terreno antártico",
+      "url": "https://laprensaaustral.cl/2026/05/02/inach-cierra-la-temporada-cientifica-con-avances-en-monitoreo-climatico-y-40-proyectos-en-terreno-antartico/"
+    },
+    {
+      "titulo": "Pingüino emperador y categoría “en peligro”: advierten riesgo de colapso en la red trófica antártica",
+      "url": "https://laprensaaustral.cl/2026/04/26/pinguino-emperador-y-categoria-en-peligro-advierten-riesgo-de-colapso-en-la-red-trofica-antartica/"
+    }
+  ],
+  "estado": "ok",
+  "error": null,
+  "timestamp_fin": "2026-05-13 16:30:51"
+}

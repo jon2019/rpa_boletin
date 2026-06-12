@@ -1,0 +1,60 @@
+{
+  "timestamp_inicio": "2026-05-05 16:47:41",
+  "url": "https://www.rumbominero.com",
+  "status_code": 403,
+  "url_final": "https://www.rumbominero.com/",
+  "content_type": "text/html; browser-rendered-visible",
+  "selectores": [
+    {
+      "selector": ".td_module_wrap .entry-title a[href*='rumbominero.com/']",
+      "total": 0,
+      "preview": []
+    },
+    {
+      "selector": ".tdb_module_header .entry-title a[href*='rumbominero.com/']",
+      "total": 0,
+      "preview": []
+    },
+    {
+      "selector": ".td_module_trending_now .entry-title a[href*='rumbominero.com/']",
+      "total": 0,
+      "preview": []
+    },
+    {
+      "selector": ".td-module-thumb a.td-image-wrap[href*='rumbominero.com/']",
+      "total": 0,
+      "preview": []
+    },
+    {
+      "selector": "h2.entry-title a[href*='rumbominero.com/']",
+      "total": 0,
+      "preview": []
+    },
+    {
+      "selector": "h3.entry-title a[href*='rumbominero.com/']",
+      "total": 0,
+      "preview": []
+    },
+    {
+      "selector": "p.entry-title a[href*='rumbominero.com/']",
+      "total": 0,
+      "preview": []
+    }
+  ],
+  "selector_recomendado": ".td_module_wrap .entry-title a[href*='rumbominero.com/'], .tdb_module_header .entry-title a[href*='rumbominero.com/'], .td_module_trending_now .entry-title a[href*='rumbominero.com/'], .td-module-thumb a.td-image-wrap[href*='rumbominero.com/'], h2.entry-title a[href*='rumbominero.com/'], h3.entry-title a[href*='rumbominero.com/'], p.entry-title a[href*='rumbominero.com/']",
+  "noticias_encontradas": 0,
+  "noticias_preview": [],
+  "scraper_generico_encontradas": 0,
+  "scraper_generico_preview": [],
+  "estado": "ok",
+  "error": null,
+  "browser": {
+    "challenge_resuelto": false,
+    "detector_selector": null,
+    "estado_browser": "challenge_activo | title=Un momento… | url=https://www.rumbominero.com/",
+    "title_final": "Un momento…",
+    "cookies_count": 1,
+    "click_verificacion": "automatico_o_manual_intentado"
+  },
+  "timestamp_fin": "2026-05-05 16:50:53"
+}

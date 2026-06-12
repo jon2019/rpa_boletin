@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boletín Minero-Energético</title>
+</head>
+<body style="margin:0; padding:0; background-color:#e8e8e8; font-family:Arial, sans-serif;">
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     OUTER WRAPPER
+     ══════════════════════════════════════════════════════════════════════ -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#e8e8e8;">
+  <tr>
+    <td align="center">
+
+      <!-- CONTENT TABLE 900px -->
+      <table width="900" cellpadding="0" cellspacing="0" border="0" style="background-color:#e8e8e8;">
+
+
+        <!-- ── HEADER ──────────────────────────────────────────────────── -->
+        <tr>
+          <!-- ES -->
+          <td width="450" valign="top" style="background-color:#1a5c2a; padding:28px 32px 24px 32px;">
+            <div style="font-size:11px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; color:#ffffff; margin-bottom:6px; font-family:Arial, sans-serif;">{{ empresa }}</div>
+            <div style="font-size:22px; font-weight:bold; color:#ffffff; margin-bottom:4px; line-height:1.2; font-family:Arial, sans-serif;">Actualización de Proyectos</div>
+            <div style="font-size:12px; color:#ffffff; margin-bottom:14px; font-family:Arial, sans-serif;">{{ subtitulo_es }}</div>
+            <div style="font-size:11px; color:#ffffff; margin-bottom:12px; font-family:Arial, sans-serif;">Desde {{ fecha_desde }} hasta {{ fecha_hasta }}</div>
+            <span style="display:inline-block; background:transparent; border:2px solid #ffffff; color:#ffffff; font-size:11px; font-weight:bold; padding:4px 14px; border-radius:20px; font-family:Arial, sans-serif;">Total de noticias encontradas: {{ total_noticias }}</span>
+          </td>
+          <!-- EN -->
+          <td width="450" valign="top" style="background-color:#000000; padding:28px 32px 24px 32px;">
+            <div style="font-size:11px; font-weight:bold; letter-spacing:2px; text-transform:uppercase; color:#ffffff; margin-bottom:6px; font-family:Arial, sans-serif;">{{ empresa }}</div>
+            <div style="font-size:22px; font-weight:bold; color:#ffffff; margin-bottom:4px; line-height:1.2; font-family:Arial, sans-serif;">Project Updates</div>
+            <div style="font-size:12px; color:#ffffff; margin-bottom:14px; font-family:Arial, sans-serif;">{{ subtitulo_en }}</div>
+            <div style="font-size:11px; color:#ffffff; margin-bottom:12px; font-family:Arial, sans-serif;">From {{ fecha_desde }} to {{ fecha_hasta }}</div>
+            <span style="display:inline-block; background:transparent; border:2px solid #ffffff; color:#ffffff; font-size:11px; font-weight:bold; padding:4px 14px; border-radius:20px; font-family:Arial, sans-serif;">Total news found: {{ total_noticias }}</span>
+          </td>
+        </tr>
+
+
+        <!-- ── NOTICIAS POR PAÍS ───────────────────────────────────────── -->
+        {% for pais, datos in paises.items() %}
+
+        <!-- País header -->
+        <tr>
+          <td width="450" style="background-color:#d4d4d4; border-top:1px solid #c0c0c0; border-bottom:1px solid #c0c0c0; padding:10px 32px;">
+            <span style="font-size:12px; font-weight:bold; color:#333333; letter-spacing:1px; text-transform:uppercase; font-family:Arial, sans-serif;">{{ datos.flag }} {{ pais }} &mdash; {{ datos.noticias|length }} noticias</span>
+          </td>
+          <td width="450" style="background-color:#d0d0d0; border-top:1px solid #c0c0c0; border-bottom:1px solid #c0c0c0; border-left:1px solid #c0c0c0; padding:10px 32px;">
+            <span style="font-size:12px; font-weight:bold; color:#333333; letter-spacing:1px; text-transform:uppercase; font-family:Arial, sans-serif;">{{ datos.flag }} {{ datos.nombre_en }} &mdash; {{ datos.noticias|length }} news</span>
+          </td>
+        </tr>
+
+        <!-- Noticias -->
+        {% for n in datos.noticias %}
+        <tr>
+
+          <!-- ES card -->
+          <td width="450" valign="top" style="padding:10px; background-color:#e8e8e8; border-bottom:1px solid #d4d4d4;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0"
+                   style="background-color:#ffffff; border-collapse:collapse; border:1px solid #d8d8d8; border-left:4px solid {% if n.es_contrato %}#c8a84b{% else %}#1a5c2a{% endif %}; border-radius:6px;">
+              <tr>
+                <td style="padding:14px 16px; font-family:Arial, sans-serif;">
+
+                  <!-- Título -->
+                  <div style="font-size:12px; font-weight:bold; margin-bottom:10px; line-height:1.4; text-transform:uppercase;">
+                    <a href="{{ n.url }}" target="_blank"
+                       style="color:{% if n.es_contrato %}#8a6a10{% else %}#1a1a1a{% endif %}; text-decoration:none; font-family:Arial, sans-serif;">
+                      {{ n.titulo }}
+                    </a>
+                    {% if n.es_contrato %}
+                    <span style="font-size:9px; font-weight:bold; padding:2px 6px; border-radius:3px; letter-spacing:1px; text-transform:uppercase; margin-left:6px; background-color:#f5e6c0; border:1px solid #c8a84b; color:#8a6a10; font-family:Arial, sans-serif;">Contrato</span>
+                    {% endif %}
+                  </div>
+
+                  <!-- Meta -->
+                  <div style="font-size:11px; color:#444444; line-height:1.8; margin-bottom:8px; font-family:Arial, sans-serif;">
+                    <span style="color:#555555; font-weight:bold;">Fuente:</span>
+                    <strong style="color:#1a1a1a;">{{ n.fuente }}</strong><br>
+                    {% if n.resumen %}
+                    <span style="color:#555555; font-weight:bold;">Resumen:</span>
+                    {{ n.resumen[:180] }}{% if n.resumen|length > 180 %}...{% endif %}
+                    {% endif %}
+                  </div>
+
+                  <!-- Fecha -->
+                  <div style="font-size:11px; color:{% if n.es_contrato %}#8a6a10{% else %}#444444{% endif %}; font-weight:bold; margin-bottom:10px; font-family:Arial, sans-serif;">
+                    &#128197; Fecha: {{ n.fecha_fmt }}
+                  </div>
+
+                  <!-- Botón -->
+                  <a href="{{ n.url }}" target="_blank"
+                     style="display:inline-block; background-color:#1a5c2a; color:#ffffff; text-decoration:none; padding:7px 16px; font-size:11px; font-weight:bold; border-radius:5px; font-family:Arial, sans-serif;">
+                    Ver m&aacute;s
+                  </a>
+
+                </td>
+              </tr>
+            </table>
+          </td>
+
+          <!-- EN card -->
+          <td width="450" valign="top" style="padding:10px; background-color:#e4e4e4; border-bottom:1px solid #d4d4d4; border-left:1px solid #d4d4d4;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0"
+                   style="background-color:#ffffff; border-collapse:collapse; border:1px solid #d8d8d8; border-left:4px solid {% if n.es_contrato %}#c8a84b{% else %}#000000{% endif %}; border-radius:6px;">
+              <tr>
+                <td style="padding:14px 16px; font-family:Arial, sans-serif;">
+
+                  <!-- Title -->
+                  <div style="font-size:12px; font-weight:bold; margin-bottom:10px; line-height:1.4; text-transform:uppercase;">
+                    <a href="{{ n.url }}" target="_blank"
+                       style="color:{% if n.es_contrato %}#8a6a10{% else %}#1a1a1a{% endif %}; text-decoration:none; font-family:Arial, sans-serif;">
+                      {{ n.titulo_en or n.titulo }}
+                    </a>
+                    {% if n.es_contrato %}
+                    <span style="font-size:9px; font-weight:bold; padding:2px 6px; border-radius:3px; letter-spacing:1px; text-transform:uppercase; margin-left:6px; background-color:#f5e6c0; border:1px solid #c8a84b; color:#8a6a10; font-family:Arial, sans-serif;">Contract</span>
+                    {% endif %}
+                  </div>
+
+                  <!-- Meta -->
+                  <div style="font-size:11px; color:#444444; line-height:1.8; margin-bottom:8px; font-family:Arial, sans-serif;">
+                    <span style="color:#555555; font-weight:bold;">Source:</span>
+                    <strong style="color:#1a1a1a;">{{ n.fuente }}</strong><br>
+                    {% set res = n.resumen_en or n.resumen %}
+                    {% if res %}
+                    <span style="color:#555555; font-weight:bold;">Summary:</span>
+                    {{ res[:180] }}{% if res|length > 180 %}...{% endif %}
+                    {% endif %}
+                  </div>
+
+                  <!-- Date -->
+                  <div style="font-size:11px; color:{% if n.es_contrato %}#8a6a10{% else %}#444444{% endif %}; font-weight:bold; margin-bottom:10px; font-family:Arial, sans-serif;">
+                    &#128197; Date: {{ n.fecha_fmt }}
+                  </div>
+
+                  <!-- Button -->
+                  <a href="{{ n.url }}" target="_blank"
+                     style="display:inline-block; background-color:#111111; color:#ffffff; text-decoration:none; padding:7px 16px; font-size:11px; font-weight:bold; border-radius:5px; font-family:Arial, sans-serif;">
+                    Read more
+                  </a>
+
+                </td>
+              </tr>
+            </table>
+          </td>
+
+        </tr>
+        {% endfor %}
+
+        {% endfor %}
+
+
+        <!-- ── FUENTES FALLIDAS ────────────────────────────────────────── -->
+        {% if failed_sources %}
+        <tr>
+          <td colspan="2" style="background-color:#d4d4d4; border-top:1px solid #c0c0c0; border-bottom:1px solid #c0c0c0; padding:10px 32px;">
+            <span style="font-size:12px; font-weight:bold; color:#333333; letter-spacing:1px; text-transform:uppercase; font-family:Arial, sans-serif;">
+              Fuentes con Errores / Failed Sources &mdash; {{ failed_sources|length }}
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="padding:16px 24px; background-color:#e8e8e8;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0"
+                   style="background-color:#ffffff; border-collapse:collapse; border:1px solid #d8d8d8; border-left:4px solid #c0392b; border-radius:6px;">
+              <tr>
+                <td style="padding:14px 16px;">
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; font-size:11px;">
+                    <thead>
+                      <tr style="background-color:#1a5c2a; color:#ffffff;">
+                        <th style="padding:8px; border:1px solid #c0c0c0; text-align:left; font-family:Arial, sans-serif;">Pa&iacute;s / Country</th>
+                        <th style="padding:8px; border:1px solid #c0c0c0; text-align:left; font-family:Arial, sans-serif;">Fuente / Source</th>
+                        <th style="padding:8px; border:1px solid #c0c0c0; text-align:left; font-family:Arial, sans-serif;">URL</th>
+                        <th style="padding:8px; border:1px solid #c0c0c0; text-align:left; font-family:Arial, sans-serif;">M&eacute;todo / Method</th>
+                        <th style="padding:8px; border:1px solid #c0c0c0; text-align:left; font-family:Arial, sans-serif;">Usuario</th>
+                        <th style="padding:8px; border:1px solid #c0c0c0; text-align:left; font-family:Arial, sans-serif;">Error</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for fs in failed_sources %}
+                      <tr style="background-color:{% if loop.index is odd %}#ffffff{% else %}#f5f5f5{% endif %}; color:#1a1a1a;">
+                        <td style="padding:8px; border:1px solid #c0c0c0; font-family:Arial, sans-serif;">{{ fs.pais }}</td>
+                        <td style="padding:8px; border:1px solid #c0c0c0; font-family:Arial, sans-serif;">{{ fs.nombre }}</td>
+                        <td style="padding:8px; border:1px solid #c0c0c0; font-family:Arial, sans-serif;"><a href="{{ fs.url }}" style="color:#1a5c2a;" target="_blank">{{ fs.url }}</a></td>
+                        <td style="padding:8px; border:1px solid #c0c0c0; font-family:Arial, sans-serif;">{{ fs.metodo }}</td>
+                        <td style="padding:8px; border:1px solid #c0c0c0; font-family:Arial, sans-serif;">
+                          {% if fs.usuario %}
+                            <span style="font-size:10px; background-color:#e8f5e9; border:1px solid #a5d6a7; color:#1b5e20; padding:2px 6px; border-radius:3px; font-family:Arial, sans-serif;">&#128273; {{ fs.usuario }}</span>
+                          {% else %}
+                            <span style="color:#aaaaaa; font-family:Arial, sans-serif;">&mdash;</span>
+                          {% endif %}
+                        </td>
+                        <td style="padding:8px; border:1px solid #c0c0c0; font-family:Arial, sans-serif;">{{ fs.error }}</td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        {% endif %}
+
+
+        <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+        <tr>
+          <td colspan="2" style="background-color:#d4d4d4; padding:24px 32px; border-top:1px solid #c0c0c0; text-align:center;">
+
+            <div style="font-size:10px; color:#555555; line-height:1.8; font-family:Arial, sans-serif;">
+              Bolet&iacute;n generado autom&aacute;ticamente con inteligencia artificial &middot; {{ fecha_hasta }}<br>
+              {{ total_noticias }} noticias &middot; Chile &middot; Per&uacute; &middot; Argentina &middot; Mining &amp; Energy Intelligence
+            </div>
+
+            {% if resumen %}
+            <!-- Resumen operativo -->
+            <table width="100%" cellpadding="0" cellspacing="0" border="0"
+                   style="background-color:#ffffff; border:1px solid #d8d8d8; border-radius:6px; margin-top:18px; text-align:left;">
+              <tr>
+                <td style="padding:14px 16px; font-family:Arial, sans-serif;">
+
+                  <div style="font-size:11px; font-weight:bold; color:#8a1f11; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.7px; font-family:Arial, sans-serif;">
+                    Resumen operativo de fuentes
+                  </div>
+
+                  <!-- Tabla resumen agregado -->
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; font-size:11px; margin-bottom:12px;">
+                    <thead>
+                      <tr style="background-color:#1a5c2a; color:#ffffff;">
+                        <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">Total links en BD</th>
+                        <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">Links con noticias</th>
+                        <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">Links sin noticias</th>
+                        <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">Links con errores</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr style="background-color:#ffffff; color:#1a1a1a;">
+                        <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;">{{ resumen.total_fuentes_activas or 0 }}</td>
+                        <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;">{{ resumen.links_con_noticias or 0 }}</td>
+                        <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;">{{ resumen.links_sin_noticias or 0 }}</td>
+                        <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;">{{ resumen.links_con_errores or 0 }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div style="font-size:11px; color:#555555; margin-bottom:12px; font-family:Arial, sans-serif;">
+                    Base del c&aacute;lculo: fuentes activas en BD vs. resultados registrados en ejecucion_fuentes para la fecha efectiva.
+                  </div>
+
+                  {% if resumen.nota_reglas_negocio %}
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0"
+                         style="background-color:#fff8e1; border:1px solid #e0c97f; border-left:4px solid #e0c97f; border-radius:4px; margin-bottom:12px;">
+                    <tr>
+                      <td style="padding:10px 12px; font-family:Arial, sans-serif;">
+                        <div style="font-size:11px; font-weight:bold; color:#7a5d00; margin-bottom:6px;">Nota &mdash; Reglas operativas del ciclo</div>
+                        {% for regla in resumen.nota_reglas_negocio %}
+                        <div style="font-size:11px; color:#555555; line-height:1.5; font-family:Arial, sans-serif;">&bull; {{ regla }}</div>
+                        {% endfor %}
+                      </td>
+                    </tr>
+                  </table>
+                  {% endif %}
+
+                  {% if resumen.detalle_fuentes %}
+                  <div style="font-size:11px; font-weight:bold; color:#8a1f11; margin-top:6px; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.7px; font-family:Arial, sans-serif;">
+                    Detalle final por link
+                  </div>
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; font-size:11px; margin-bottom:12px;">
+                    <thead>
+                      <tr style="background-color:#1a5c2a; color:#ffffff;">
+                        <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">#</th>
+                        <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">Pa&iacute;s</th>
+                        <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">Fuente</th>
+                        <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">Link</th>
+                        <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">Resumen noticias encontradas</th>
+                        <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">Total candidatas</th>
+                        <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">Motivo sin candidatas</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for item in resumen.detalle_fuentes %}
+                      <tr style="background-color:{% if loop.index is odd %}#ffffff{% else %}#fafafa{% endif %}; color:#1a1a1a;">
+                        <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;">{{ loop.index }}</td>
+                        <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;">{{ item.pais or '-' }}</td>
+                        <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;">{{ item.nombre_fuente or '-' }}</td>
+                        <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;"><a href="{{ item.url_fuente }}" style="color:#1a5c2a;" target="_blank">{{ item.url_fuente }}</a></td>
+                        <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;">{{ item.resumen_noticias }}</td>
+                        <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;">{{ item.noticias_candidatas or 0 }}</td>
+                        <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;">{{ item.motivo_sin_candidatas or '&mdash;' }}</td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                  {% endif %}
+
+                  {% if resumen.fuentes_con_error_ejecucion %}
+                  <div style="font-size:11px; font-weight:bold; color:#8a1f11; margin-top:6px; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.7px; font-family:Arial, sans-serif;">
+                    URLs con problemas detectados en ejecuci&oacute;n
+                  </div>
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; font-size:11px; margin-bottom:12px;">
+                    <thead>
+                      <tr style="background-color:#1a5c2a; color:#ffffff;">
+                        <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">#</th>
+                        <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">Pa&iacute;s</th>
+                        <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">Fuente</th>
+                        <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">Link</th>
+                        <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">Etapa fallida</th>
+                        <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">Error detectado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for item in resumen.fuentes_con_error_ejecucion %}
+                      <tr style="background-color:{% if loop.index is odd %}#ffffff{% else %}#fafafa{% endif %}; color:#1a1a1a;">
+                        <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;">{{ loop.index }}</td>
+                        <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;">{{ item.pais or '-' }}</td>
+                        <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;">{{ item.nombre_fuente or '-' }}</td>
+                        <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;"><a href="{{ item.url_fuente }}" style="color:#1a5c2a;" target="_blank">{{ item.url_fuente }}</a></td>
+                        <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;">{{ item.etapa_fallida or '-' }}</td>
+                        <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;">{{ item.error_detalle or '&mdash;' }}</td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                  {% endif %}
+
+                  {% if resumen.fuentes_omitidas_reglas and not resumen.fuentes_problemas_operativos %}
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0"
+                         style="background-color:#ffffff; border:1px solid #d8d8d8; border-left:4px solid #c0392b; border-radius:4px; margin-bottom:12px;">
+                    <tr>
+                      <td style="padding:10px 12px; font-family:Arial, sans-serif;">
+                        <div style="font-size:11px; font-weight:bold; color:#8a1f11; margin-bottom:8px; font-family:Arial, sans-serif;">
+                          Fuentes activas omitidas por no cumplir reglas m&iacute;nimas de procesamiento &mdash; {{ resumen.fuentes_omitidas_reglas_total }}
+                        </div>
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; font-size:11px;">
+                          <thead>
+                            <tr style="background-color:#f5f5f5; color:#1a1a1a;">
+                              <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">Pa&iacute;s</th>
+                              <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">Fuente</th>
+                              <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">URL</th>
+                              <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">Motivo</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for fo in resumen.fuentes_omitidas_reglas %}
+                            <tr style="background-color:{% if loop.index is odd %}#ffffff{% else %}#fafafa{% endif %}; color:#1a1a1a;">
+                              <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;">{{ fo.country }}</td>
+                              <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;">{{ fo.name }}</td>
+                              <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;"><a href="{{ fo.url }}" style="color:#1a5c2a;" target="_blank">{{ fo.url }}</a></td>
+                              <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;">Sin rss, sin scrape_selector y sin credenciales</td>
+                            </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  {% endif %}
+
+                  {% if resumen.fuentes_problemas_operativos %}
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0"
+                         style="background-color:#ffffff; border:1px solid #d8d8d8; border-left:4px solid #8a1f11; border-radius:4px;">
+                    <tr>
+                      <td style="padding:10px 12px; font-family:Arial, sans-serif;">
+                        <div style="font-size:11px; font-weight:bold; color:#8a1f11; margin-bottom:8px; font-family:Arial, sans-serif;">
+                          Fuentes activas con problema operativo detectado &mdash; {{ resumen.fuentes_problemas_operativos_total }}
+                        </div>
+                        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; font-size:11px;">
+                          <thead>
+                            <tr style="background-color:#f5f5f5; color:#1a1a1a;">
+                              <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">Pa&iacute;s</th>
+                              <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">Fuente</th>
+                              <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">URL</th>
+                              <th style="padding:6px; border:1px solid #dcdcdc; text-align:left; font-family:Arial, sans-serif;">Problema</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for fp in resumen.fuentes_problemas_operativos %}
+                            <tr style="background-color:{% if loop.index is odd %}#ffffff{% else %}#fafafa{% endif %}; color:#1a1a1a;">
+                              <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;">{{ fp.country }}</td>
+                              <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;">{{ fp.name }}</td>
+                              <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;"><a href="{{ fp.url }}" style="color:#1a5c2a;" target="_blank">{{ fp.url }}</a></td>
+                              <td style="padding:6px; border:1px solid #dcdcdc; font-family:Arial, sans-serif;">{{ fp.problema }}</td>
+                            </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                  {% endif %}
+
+                </td>
+              </tr>
+            </table>
+            {% endif %}
+
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

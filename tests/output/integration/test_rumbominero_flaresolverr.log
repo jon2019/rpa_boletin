@@ -1,0 +1,17 @@
+2026-05-05 16:39:47,176 [INFO] Llamando a FlareSolverr en http://127.0.0.1:8191/v1
+2026-05-05 16:39:47,177 [INFO] Payload: {'cmd': 'request.get', 'url': 'https://www.rumbominero.com', 'maxTimeout': 180000, 'waitInSeconds': 8, 'returnScreenshot': True}
+2026-05-05 16:42:54,533 [INFO] HTTP Request: POST http://127.0.0.1:8191/v1 "HTTP/1.1 500 Internal Server Error"
+2026-05-05 16:42:54,534 [ERROR] Error ejecutando test de Rumbo Minero con FlareSolverr: Server error '500 Internal Server Error' for url 'http://127.0.0.1:8191/v1'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+Traceback (most recent call last):
+  File "D:\workspace_visual_studio_code\rpa_boletin\tests\helper\integration\test_rumbominero_flaresolverr.py", line 368, in run_test
+    flaresolverr_response = _llamar_flaresolverr()
+                            ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\workspace_visual_studio_code\rpa_boletin\tests\helper\integration\test_rumbominero_flaresolverr.py", line 338, in _llamar_flaresolverr
+    response.raise_for_status()
+  File "D:\workspace_visual_studio_code\rpa_boletin\.venv\Lib\site-packages\httpx\_models.py", line 761, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Server error '500 Internal Server Error' for url 'http://127.0.0.1:8191/v1'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500
+2026-05-05 16:42:54,537 [INFO] Resultado JSON guardado: D:\workspace_visual_studio_code\rpa_boletin\tests\output\integration\test_rumbominero_flaresolverr_resultado.json
+2026-05-05 16:42:54,538 [INFO] === FIN TEST RUMBO MINERO / FLARESOLVERR ===

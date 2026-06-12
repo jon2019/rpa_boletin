@@ -1,0 +1,57 @@
+erDiagram
+    FUENTES {
+        VARCHAR url PK
+        VARCHAR nombre
+        VARCHAR pais
+        BOOLEAN activa
+        TIMESTAMP fecha_creacion
+    }
+    PAISES {
+        VARCHAR nombre PK
+        INTEGER cuota
+        TEXT descripcion
+    }
+    EJECUCION_FUENTES {
+        VARCHAR url_fuente PK
+        DATE fecha_ejecucion PK
+        VARCHAR nombre_fuente
+        BOOLEAN scraping_ok
+        BOOLEAN ia_ok
+        INTEGER noticias_obtenidas
+        INTEGER noticias_enviadas
+        TEXT error_detalle
+        TIMESTAMP fecha_registro
+    }
+    NOTICIAS_ENVIADAS {
+        VARCHAR url_hash PK
+        VARCHAR titulo
+        VARCHAR fuente
+        VARCHAR pais
+        VARCHAR url
+        TIMESTAMP enviado_en
+    }
+    ENVIOS_LOG {
+        DATE fecha_envio PK
+        BOOLEAN exito
+        INTEGER noticias_enviadas
+        TEXT error_detalle
+        TIMESTAMP fecha_registro
+    }
+    SCORE_REGLAS {
+        SERIAL id PK
+        VARCHAR regla
+        INTEGER peso
+        TEXT descripcion
+    }
+    SCORE_EMPRESAS {
+        VARCHAR empresa PK
+        VARCHAR tipo
+        TEXT descripcion
+    }
+    SCORE_KEYWORDS {
+        VARCHAR keyword PK
+        INTEGER peso
+        VARCHAR categoria
+    }
+    
+    FUENTES ||--o{ EJECUCION_FUENTES : "url = url_fuente"

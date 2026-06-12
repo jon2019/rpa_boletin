@@ -1,0 +1,320 @@
+{
+  "timestamp_inicio": "2026-04-24 12:42:13",
+  "url": "https://www.miningweekly.com/page/international-home",
+  "url_final": "https://www.miningweekly.com/page/international-home",
+  "content_type": "text/html; browser-rendered-visible",
+  "selectores": [
+    {
+      "selector": "a.card-title[href*='/article/']",
+      "total": 68,
+      "preview": [
+        {
+          "texto": "World’s biggest lithium mine gets downgrade on ‘systemic issues'",
+          "href": "https://www.miningweekly.com/article/worlds-biggest-lithium-mine-gets-downgrade-on-systemic-issues-2026-04-24"
+        },
+        {
+          "texto": "War squeezes global mining as diesel and acid supplies tighten",
+          "href": "https://www.miningweekly.com/article/war-squeezes-global-mining-as-diesel-and-acid-supplies-tighten-2026-04-24"
+        },
+        {
+          "texto": "Fortescue confirms new $680m green energy initiative in Australia, record Q3 iron-ore shipments",
+          "href": "https://www.miningweekly.com/article/fortescue-confirms-new-680bn-green-energy-initiative-in-australia-2026-04-24"
+        },
+        {
+          "texto": "Newmont boasts record $3.1bn quarterly free cash flow",
+          "href": "https://www.miningweekly.com/article/newmont-boasts-record-31bn-quarterly-free-cash-flow-2026-04-24"
+        },
+        {
+          "texto": "Vulcan starts building $3.9bn Lionheart lithium plant in Frankfurt",
+          "href": "https://www.miningweekly.com/article/vulcan-starts-building-39bn-lionheart-lithium-plant-in-frankfurt-2026-04-24"
+        }
+      ]
+    },
+    {
+      "selector": "a.headline-link[href*='/article/']",
+      "total": 21,
+      "preview": [
+        {
+          "texto": "St Barbara reaches FID on Touquoy restart, expects processing by year-end",
+          "href": "https://www.miningweekly.com/article/st-barbara-reaches-fid-on-touquoy-restart-expects-processing-by-year-end-2026-04-24"
+        },
+        {
+          "texto": "Middle East war could cause 120 bcm of LNG supply loss from 2026 to 2030 - IEA",
+          "href": "https://www.miningweekly.com/article/middle-east-war-could-cause-120-bcm-of-lng-supply-loss-from-2026-to-2030---iea-2026-04-24"
+        },
+        {
+          "texto": "Global refined copper market to swing to surplus in 2026, group says",
+          "href": "https://www.miningweekly.com/article/global-refined-copper-market-to-swing-to-surplus-in-2026-group-says-2026-04-23"
+        },
+        {
+          "texto": "Abitibi secures Discovery Silver as strategic investor in latest placement",
+          "href": "https://www.miningweekly.com/article/abitibi-secures-discovery-silver-as-strategic-investor-in-latest-placement-2026-04-24"
+        },
+        {
+          "texto": "FireFly nears end of Ontario assets sale to Bellavista",
+          "href": "https://www.miningweekly.com/article/firefly-nears-end-of-ontario-assets-sale-to-bellavista-2026-04-24"
+        }
+      ]
+    },
+    {
+      "selector": "a.headline-link-projects[href*='/article/']",
+      "total": 0,
+      "preview": []
+    },
+    {
+      "selector": "a.image-link[href*='/article/']",
+      "total": 50,
+      "preview": [
+        {
+          "texto": "Greenbushes mine, in Western Australia",
+          "href": "https://www.miningweekly.com/article/worlds-biggest-lithium-mine-gets-downgrade-on-systemic-issues-2026-04-24"
+        },
+        {
+          "texto": "Mining and processing equipment",
+          "href": "https://www.miningweekly.com/article/war-squeezes-global-mining-as-diesel-and-acid-supplies-tighten-2026-04-24"
+        },
+        {
+          "texto": "Pilbara region, in Australia",
+          "href": "https://www.miningweekly.com/article/fortescue-confirms-new-680bn-green-energy-initiative-in-australia-2026-04-24"
+        },
+        {
+          "texto": "SAGA Conference",
+          "href": "https://www.miningweekly.com/article/sagas-innovation-investment-alley---discover-the-frontier-of-geophysics-2026-04-20"
+        },
+        {
+          "texto": "Large outside exhibition areas",
+          "href": "https://www.miningweekly.com/article/electra-mining-africas-unmatched-face-to-face-engagement-enables-business-growth-2026-03-30"
+        }
+      ]
+    },
+    {
+      "selector": "a.image-link-projects[href*='/article/']",
+      "total": 0,
+      "preview": []
+    },
+    {
+      "selector": ".entry a[href*='/article/']",
+      "total": 96,
+      "preview": [
+        {
+          "texto": "World’s biggest lithium mine gets downgrade on ‘systemic issues'",
+          "href": "https://www.miningweekly.com/article/worlds-biggest-lithium-mine-gets-downgrade-on-systemic-issues-2026-04-24"
+        },
+        {
+          "texto": "War squeezes global mining as diesel and acid supplies tighten",
+          "href": "https://www.miningweekly.com/article/war-squeezes-global-mining-as-diesel-and-acid-supplies-tighten-2026-04-24"
+        },
+        {
+          "texto": "Fortescue confirms new $680m green energy initiative in Australia, record Q3 iron-ore shipments",
+          "href": "https://www.miningweekly.com/article/fortescue-confirms-new-680bn-green-energy-initiative-in-australia-2026-04-24"
+        },
+        {
+          "texto": "",
+          "href": "https://www.miningweekly.com/article/fortescue-confirms-new-680bn-green-energy-initiative-in-australia-2026-04-24"
+        },
+        {
+          "texto": "Newmont boasts record $3.1bn quarterly free cash flow",
+          "href": "https://www.miningweekly.com/article/newmont-boasts-record-31bn-quarterly-free-cash-flow-2026-04-24"
+        }
+      ]
+    },
+    {
+      "selector": ".card-body a[href*='/article/']",
+      "total": 96,
+      "preview": [
+        {
+          "texto": "World’s biggest lithium mine gets downgrade on ‘systemic issues'",
+          "href": "https://www.miningweekly.com/article/worlds-biggest-lithium-mine-gets-downgrade-on-systemic-issues-2026-04-24"
+        },
+        {
+          "texto": "War squeezes global mining as diesel and acid supplies tighten",
+          "href": "https://www.miningweekly.com/article/war-squeezes-global-mining-as-diesel-and-acid-supplies-tighten-2026-04-24"
+        },
+        {
+          "texto": "Fortescue confirms new $680m green energy initiative in Australia, record Q3 iron-ore shipments",
+          "href": "https://www.miningweekly.com/article/fortescue-confirms-new-680bn-green-energy-initiative-in-australia-2026-04-24"
+        },
+        {
+          "texto": "",
+          "href": "https://www.miningweekly.com/article/fortescue-confirms-new-680bn-green-energy-initiative-in-australia-2026-04-24"
+        },
+        {
+          "texto": "Newmont boasts record $3.1bn quarterly free cash flow",
+          "href": "https://www.miningweekly.com/article/newmont-boasts-record-31bn-quarterly-free-cash-flow-2026-04-24"
+        }
+      ]
+    },
+    {
+      "selector": "article a[href*='/article/']",
+      "total": 0,
+      "preview": []
+    }
+  ],
+  "selector_recomendado": "a.card-title[href*='/article/'], a.headline-link[href*='/article/'], a.headline-link-projects[href*='/article/'], a.image-link[href*='/article/'], a.image-link-projects[href*='/article/']",
+  "noticias_encontradas": 57,
+  "noticias_preview": [
+    {
+      "titulo": "World’s biggest lithium mine gets downgrade on ‘systemic issues'",
+      "url": "https://www.miningweekly.com/article/worlds-biggest-lithium-mine-gets-downgrade-on-systemic-issues-2026-04-24",
+      "categoria": "",
+      "selector": "a.card-title[href*='/article/']"
+    },
+    {
+      "titulo": "War squeezes global mining as diesel and acid supplies tighten",
+      "url": "https://www.miningweekly.com/article/war-squeezes-global-mining-as-diesel-and-acid-supplies-tighten-2026-04-24",
+      "categoria": "",
+      "selector": "a.card-title[href*='/article/']"
+    },
+    {
+      "titulo": "Fortescue confirms new $680m green energy initiative in Australia, record Q3 iron-ore shipments",
+      "url": "https://www.miningweekly.com/article/fortescue-confirms-new-680bn-green-energy-initiative-in-australia-2026-04-24",
+      "categoria": "",
+      "selector": "a.card-title[href*='/article/']"
+    },
+    {
+      "titulo": "Newmont boasts record $3.1bn quarterly free cash flow",
+      "url": "https://www.miningweekly.com/article/newmont-boasts-record-31bn-quarterly-free-cash-flow-2026-04-24",
+      "categoria": "",
+      "selector": "a.card-title[href*='/article/']"
+    },
+    {
+      "titulo": "Vulcan starts building $3.9bn Lionheart lithium plant in Frankfurt",
+      "url": "https://www.miningweekly.com/article/vulcan-starts-building-39bn-lionheart-lithium-plant-in-frankfurt-2026-04-24",
+      "categoria": "",
+      "selector": "a.card-title[href*='/article/']"
+    },
+    {
+      "titulo": "Freeport delays recovery of flagship Indonesian mine; shares down more than 8%",
+      "url": "https://www.miningweekly.com/article/freeport-delays-recovery-of-flagship-indonesian-mine-shares-down-more-than-8-2026-04-23",
+      "categoria": "",
+      "selector": "a.card-title[href*='/article/']"
+    },
+    {
+      "titulo": "Australian lithium miner PLS says energy security concerns driving demand growth",
+      "url": "https://www.miningweekly.com/article/australian-lithium-miner-pls-says-energy-security-concerns-driving-demand-growth-2026-04-24",
+      "categoria": "",
+      "selector": "a.card-title[href*='/article/']"
+    },
+    {
+      "titulo": "Valterra Platinum celebrates strong refined PGM uplift, laments safety decline",
+      "url": "https://www.miningweekly.com/article/valterra-platinum-celebrates-strong-refined-pgm-uplift-laments-safety-decline-2026-04-23",
+      "categoria": "",
+      "selector": "a.card-title[href*='/article/']"
+    },
+    {
+      "titulo": "Global refined copper market to swing to surplus in 2026, group says",
+      "url": "https://www.miningweekly.com/article/global-refined-copper-market-to-swing-to-surplus-in-2026-group-says-2026-04-23",
+      "categoria": "",
+      "selector": "a.card-title[href*='/article/']"
+    },
+    {
+      "titulo": "Anglo advances coal business sale after setback with Peabody",
+      "url": "https://www.miningweekly.com/article/anglo-advances-coal-business-sale-after-setback-with-peabody-2026-04-23",
+      "categoria": "",
+      "selector": "a.card-title[href*='/article/']"
+    },
+    {
+      "titulo": "SAGA’s Innovation & Investment Alley - Discover the frontier of geophysics",
+      "url": "https://www.miningweekly.com/article/sagas-innovation-investment-alley---discover-the-frontier-of-geophysics-2026-04-20",
+      "categoria": "",
+      "selector": "a.card-title[href*='/article/']"
+    },
+    {
+      "titulo": "Electra Mining Africa’s unmatched face-to-face engagement enables business growth",
+      "url": "https://www.miningweekly.com/article/electra-mining-africas-unmatched-face-to-face-engagement-enables-business-growth-2026-03-30",
+      "categoria": "",
+      "selector": "a.card-title[href*='/article/']"
+    },
+    {
+      "titulo": "St Barbara reaches FID on Touquoy restart, expects processing by year-end",
+      "url": "https://www.miningweekly.com/article/st-barbara-reaches-fid-on-touquoy-restart-expects-processing-by-year-end-2026-04-24",
+      "categoria": "",
+      "selector": "a.card-title[href*='/article/']"
+    },
+    {
+      "titulo": "Middle East war could cause 120 bcm of LNG supply loss from 2026 to 2030 - IEA",
+      "url": "https://www.miningweekly.com/article/middle-east-war-could-cause-120-bcm-of-lng-supply-loss-from-2026-to-2030---iea-2026-04-24",
+      "categoria": "",
+      "selector": "a.card-title[href*='/article/']"
+    },
+    {
+      "titulo": "Abitibi secures Discovery Silver as strategic investor in latest placement",
+      "url": "https://www.miningweekly.com/article/abitibi-secures-discovery-silver-as-strategic-investor-in-latest-placement-2026-04-24",
+      "categoria": "",
+      "selector": "a.card-title[href*='/article/']"
+    }
+  ],
+  "scraper_generico_encontradas": 30,
+  "scraper_generico_preview": [
+    {
+      "titulo": "Fortescue confirms new $680m green energy initiative in Australia, record Q3 iron-ore shipments",
+      "url": "https://www.miningweekly.com/article/fortescue-confirms-new-680bn-green-energy-initiative-in-australia-2026-04-24"
+    },
+    {
+      "titulo": "Mining leaders to explore resource nationalism and licence security at arbitration conference",
+      "url": "https://www.miningweekly.com/article/mining-leaders-to-explore-resource-nationalism-and-licence-security-at-arbitration-conference-2026-04-24"
+    },
+    {
+      "titulo": "Australian lithium miner PLS says energy security concerns driving demand growth",
+      "url": "https://www.miningweekly.com/article/australian-lithium-miner-pls-says-energy-security-concerns-driving-demand-growth-2026-04-24"
+    },
+    {
+      "titulo": "Electra Mining Africa’s unmatched face-to-face engagement enables business growth",
+      "url": "https://www.miningweekly.com/article/electra-mining-africas-unmatched-face-to-face-engagement-enables-business-growth-2026-03-30"
+    },
+    {
+      "titulo": "Illegal mining more than just a law enforcement issue, research fellow says",
+      "url": "https://www.miningweekly.com/article/illegal-mining-more-than-just-a-law-enforcement-issue-research-fellow-says-2026-04-24"
+    },
+    {
+      "titulo": "How mining companies are innovating to address sustainable tailings management",
+      "url": "https://www.miningweekly.com/article/how-mining-companies-are-innovating-to-address-sustainable-tailings-management-2026-04-24-1"
+    },
+    {
+      "titulo": "How mining companies are innovating to address sustainable tailings management",
+      "url": "https://www.miningweekly.com/article/how-mining-companies-are-innovating-to-address-sustainable-tailings-management-2026-04-24"
+    },
+    {
+      "titulo": "SHEDDING LIGHT: The negotiations between Eskom and the ferrochrome industry on a tariff that could prevent further smelter closures and job cuts were clearly not easy. Given that the 62c/kWh solution will need to be funded and there have traditionally been only two sources of such funding – consumers or taxpayers – it is only fair that the terms and conditions, together with the funding plan, are placed before the public. In this case, it’s up to the National Energy Regulator of South Africa to ensure some light is shed.",
+      "url": "https://www.miningweekly.com/article/shedding-light-2026-04-24"
+    },
+    {
+      "titulo": "War squeezes global mining as diesel and acid supplies tighten",
+      "url": "https://www.miningweekly.com/article/war-squeezes-global-mining-as-diesel-and-acid-supplies-tighten-2026-04-24"
+    },
+    {
+      "titulo": "Engineering News & Mining Weekly magazine now available on PressReader",
+      "url": "https://www.miningweekly.com/article/engineering-news-mining-weekly-magazine-now-available-on-pressreader-2023-02-15"
+    },
+    {
+      "titulo": "Engineering News & Mining Weekly Africa Edition to be launched in April",
+      "url": "https://www.miningweekly.com/article/engineering-news-mining-weekly-africa-edition-to-be-launched-in-april-2026-02-17"
+    },
+    {
+      "titulo": "Hydrogen enables energy storage way beyond batteries, Nel emphasises",
+      "url": "https://www.miningweekly.com/article/hydrogen-enables-energy-storage-way-beyond-batteries-nel-emphasises-2026-04-22"
+    },
+    {
+      "titulo": "Frontier Nuclear affiliate starts small modular reactor commercialisation work in US",
+      "url": "https://www.miningweekly.com/article/frontier-nuclear-affiliate-starts-small-modular-reactor-commercialisation-work-in-us-2026-04-24"
+    },
+    {
+      "titulo": "Ramokgopa welcomes inauguration of Envusa's R15bn Koruson 2 cluster of renewables projects",
+      "url": "https://www.miningweekly.com/article/ramokgopa-welcomes-inauguration-of-envusas-r15bn-koruson-2-cluster-of-renwables-projects-2026-04-24"
+    },
+    {
+      "titulo": "PGM price underpin by investment, speculation expected to persist – Sibanye-Stillwater",
+      "url": "https://www.miningweekly.com/article/pgm-price-underpin-by-investment-speculation-expected-to-persist-sibanye-stillwater-2026-04-20"
+    }
+  ],
+  "estado": "ok",
+  "error": null,
+  "browser": {
+    "challenge_resuelto": true,
+    "detector_selector": "a.card-title[href*='/article/']",
+    "estado_browser": "contenido_real_detectado",
+    "title_final": "International Home",
+    "cookies_count": 11
+  },
+  "timestamp_fin": "2026-04-24 12:42:26"
+}

@@ -1,0 +1,33 @@
+# Credenciales — NUNCA subir al repo
+.env
+
+# Entorno virtual
+.venv/
+
+# Logs
+logs/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+# Archivos temporales
+preview*.html
+*.db
+scorer_patch.py
+
+# Perfil de browser (sesiones/cookies de scraping)
+.scraper_profile/
+
+# Estado runtime
+flaresolverr_heartbeat.json
+
+# Config local de Claude Code
+.claude/
+
+# Editor
+.vscode/
+.idea/
+*.swp

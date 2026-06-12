@@ -1,0 +1,26 @@
+2026-05-13 20:00:52,730 [INFO] Descargando home: https://www.acades.cl
+2026-05-13 20:00:55,613 [INFO] HTTP Request: GET https://www.acades.cl "HTTP/1.1 200 OK"
+2026-05-13 20:00:56,257 [INFO] HTTP 200 | 226824 chars
+2026-05-13 20:00:56,285 [INFO] Extrayendo solo con selector home...
+2026-05-13 20:00:56,291 [INFO] [ACADES] test_home_only -> selector '.jet-smart-listing__featured-box-link' encontró 1 elementos
+2026-05-13 20:00:56,296 [INFO] [ACADES] test_home_only -> selector '.jet-smart-listing__post-title a' encontró 2 elementos
+2026-05-13 20:00:56,354 [INFO] [ACADES] test_home_only [.jet-smart-listing__featured-box-link] score=40 -> noticia #1 encontrada | titulo='Abril 30, 2026 Hasta 12 años de demora en permisos y precios de la energía encarecen el costo...' | url=https://www.acades.cl/hasta-12-anos-de-demora-en-permisos-y-precios-de-la-energia-encarecen-el-costo-de-agua-desalada-para-la-mineria/
+2026-05-13 20:00:56,354 [INFO] [ACADES] test_home_only [.jet-smart-listing__post-title a] score=33 -> noticia #2 encontrada | titulo='ACADES presenta informe estratégico sobre sistemas hídricos integrados en el norte de...' | url=https://www.acades.cl/acades-presenta-informe-estrategico-sobre-sistemas-hidricos-integrados-en-el-norte-de-chile-con-el-apoyo-del-ifc-del-banco-mundial/
+2026-05-13 20:00:56,355 [INFO] [ACADES] test_home_only [.jet-smart-listing__post-title a] score=31 -> noticia #3 encontrada | titulo='65% de los habitantes de la región respaldan desaladoras sobre embalses' | url=https://www.acades.cl/657-de-los-habitantes-de-la-region-respaldan-desaladoras-sobre-embalses/
+2026-05-13 20:00:56,355 [INFO] Solo home: 3 noticias
+2026-05-13 20:00:56,355 [INFO] Extrayendo con extractor combinado (home + WP REST API)...
+2026-05-13 20:00:56,360 [INFO] [ACADES] test_combinado -> selector '.jet-smart-listing__featured-box-link' encontró 1 elementos
+2026-05-13 20:00:56,365 [INFO] [ACADES] test_combinado -> selector '.jet-smart-listing__post-title a' encontró 2 elementos
+2026-05-13 20:00:56,419 [INFO] [ACADES] test_combinado [.jet-smart-listing__featured-box-link] score=40 -> noticia #1 encontrada | titulo='Abril 30, 2026 Hasta 12 años de demora en permisos y precios de la energía encarecen el costo...' | url=https://www.acades.cl/hasta-12-anos-de-demora-en-permisos-y-precios-de-la-energia-encarecen-el-costo-de-agua-desalada-para-la-mineria/
+2026-05-13 20:00:56,419 [INFO] [ACADES] test_combinado [.jet-smart-listing__post-title a] score=33 -> noticia #2 encontrada | titulo='ACADES presenta informe estratégico sobre sistemas hídricos integrados en el norte de...' | url=https://www.acades.cl/acades-presenta-informe-estrategico-sobre-sistemas-hidricos-integrados-en-el-norte-de-chile-con-el-apoyo-del-ifc-del-banco-mundial/
+2026-05-13 20:00:56,419 [INFO] [ACADES] test_combinado [.jet-smart-listing__post-title a] score=31 -> noticia #3 encontrada | titulo='65% de los habitantes de la región respaldan desaladoras sobre embalses' | url=https://www.acades.cl/657-de-los-habitantes-de-la-region-respaldan-desaladoras-sobre-embalses/
+2026-05-13 20:00:58,221 [INFO] HTTP Request: GET https://www.acades.cl/wp-json/wp/v2/posts?per_page=100&after=2026-05-01T00%3A00%3A00&_fields=id%2Ctitle%2Clink%2Cdate%2Cexcerpt&orderby=date&order=desc "HTTP/1.1 200 OK"
+2026-05-13 20:00:58,222 [INFO] [ACADES] test_combinado -> WP REST API /wp/v2/posts (after=2026-05-01T00:00:00): 0 posts
+2026-05-13 20:00:58,222 [INFO] [ACADES] test_combinado -> Mes actual vacío, buscando desde 2026-04-01T00:00:00
+2026-05-13 20:01:00,085 [INFO] HTTP Request: GET https://www.acades.cl/wp-json/wp/v2/posts?per_page=100&after=2026-04-01T00%3A00%3A00&_fields=id%2Ctitle%2Clink%2Cdate%2Cexcerpt&orderby=date&order=desc "HTTP/1.1 200 OK"
+2026-05-13 20:01:00,086 [INFO] [ACADES] test_combinado -> Fallback API (after=2026-04-01T00:00:00): 4 posts
+2026-05-13 20:01:00,086 [INFO] [ACADES] test_combinado [WP API noticias/] -> noticia #4 encontrada | titulo='Casi la mitad de los chilenos no percibe la crisis hídrica, pese a que la última década fue la más seca' | url=https://www.acades.cl/casi-la-mitad-de-los-chilenos-no-percibe-la-crisis-hidrica-pese-a-que-la-ultima-decada-fue-la-mas-seca/
+2026-05-13 20:01:00,087 [INFO] Combinado: 4 noticias (1 adicionales de la API)
+2026-05-13 20:01:00,087 [INFO] === RESUMEN === | home=3 | combinado=4 | adicionales_api=1
+2026-05-13 20:01:00,088 [INFO] Resultado guardado: D:\workspace_visual_studio_code\rpa_boletin\tests\output\integration\test_acades_resultado.json
+2026-05-13 20:01:00,088 [INFO] === FIN TEST ACADES ===

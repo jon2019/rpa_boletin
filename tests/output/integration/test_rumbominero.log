@@ -1,0 +1,59 @@
+2026-05-05 16:47:42,520 [INFO] HTTP Request: GET https://www.rumbominero.com "HTTP/1.1 403 Forbidden"
+2026-05-05 16:47:42,521 [INFO] HTTP 403 | URL final: https://www.rumbominero.com | Content-Type: text/html; charset=UTF-8
+2026-05-05 16:47:42,522 [WARNING] HTTP 403/challenge detectado en Rumbo Minero. Intentando browser visible para validar noticias reales...
+2026-05-05 16:47:45,538 [INFO] Chrome visible abierto en https://www.rumbominero.com
+2026-05-05 16:47:45,639 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:47:47,698 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:47:49,728 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:47:51,758 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:47:53,786 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:47:55,834 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:47:57,906 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:47:59,932 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:01,963 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:03,997 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:06,030 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:08,074 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:10,112 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:12,146 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:14,226 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:16,262 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:18,296 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:20,354 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:22,430 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:24,481 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:26,522 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:28,560 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:30,607 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:32,639 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:34,677 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:36,707 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:38,741 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:40,775 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:42,810 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:44,856 [INFO] Challenge activo ? esperando... | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:46,890 [WARNING] Challenge detectado. Voy a intentar clickear la verificaci?n humana y, si no alcanza, dejar? tiempo para resoluci?n manual.
+2026-05-05 16:48:46,962 [INFO] No encontr? un objetivo clickeable autom?tico: objetivo_no_encontrado
+2026-05-05 16:48:46,996 [WARNING] Si el navegador muestra el checkbox de Cloudflare, hac? click manualmente. Tiempo restante: 120s | estado=challenge_activo | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:48:57,174 [WARNING] Si el navegador muestra el checkbox de Cloudflare, hac? click manualmente. Tiempo restante: 110s | estado=challenge_activo | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:49:07,366 [WARNING] Si el navegador muestra el checkbox de Cloudflare, hac? click manualmente. Tiempo restante: 100s | estado=challenge_activo | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:49:17,564 [WARNING] Si el navegador muestra el checkbox de Cloudflare, hac? click manualmente. Tiempo restante: 90s | estado=challenge_activo | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:49:27,771 [WARNING] Si el navegador muestra el checkbox de Cloudflare, hac? click manualmente. Tiempo restante: 80s | estado=challenge_activo | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:49:37,956 [WARNING] Si el navegador muestra el checkbox de Cloudflare, hac? click manualmente. Tiempo restante: 70s | estado=challenge_activo | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:49:48,140 [WARNING] Si el navegador muestra el checkbox de Cloudflare, hac? click manualmente. Tiempo restante: 59s | estado=challenge_activo | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:49:58,342 [WARNING] Si el navegador muestra el checkbox de Cloudflare, hac? click manualmente. Tiempo restante: 49s | estado=challenge_activo | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:50:08,546 [WARNING] Si el navegador muestra el checkbox de Cloudflare, hac? click manualmente. Tiempo restante: 39s | estado=challenge_activo | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:50:18,737 [WARNING] Si el navegador muestra el checkbox de Cloudflare, hac? click manualmente. Tiempo restante: 29s | estado=challenge_activo | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:50:28,962 [WARNING] Si el navegador muestra el checkbox de Cloudflare, hac? click manualmente. Tiempo restante: 19s | estado=challenge_activo | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:50:37,221 [WARNING] Si el navegador muestra el checkbox de Cloudflare, hac? click manualmente. Tiempo restante: 10s | estado=challenge_activo | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:50:47,435 [INFO] Browser visible | URL final: https://www.rumbominero.com/ | t?tulo: Un momento… | html_len=31461 | cookies=1 | estado=challenge_activo | title=Un momento… | url=https://www.rumbominero.com/
+2026-05-05 16:50:53,920 [INFO] Selector '.td_module_wrap .entry-title a[href*='rumbominero.com/']' encontr? 0 nodos
+2026-05-05 16:50:53,921 [INFO] Selector '.tdb_module_header .entry-title a[href*='rumbominero.com/']' encontr? 0 nodos
+2026-05-05 16:50:53,921 [INFO] Selector '.td_module_trending_now .entry-title a[href*='rumbominero.com/']' encontr? 0 nodos
+2026-05-05 16:50:53,922 [INFO] Selector '.td-module-thumb a.td-image-wrap[href*='rumbominero.com/']' encontr? 0 nodos
+2026-05-05 16:50:53,922 [INFO] Selector 'h2.entry-title a[href*='rumbominero.com/']' encontr? 0 nodos
+2026-05-05 16:50:53,923 [INFO] Selector 'h3.entry-title a[href*='rumbominero.com/']' encontr? 0 nodos
+2026-05-05 16:50:53,923 [INFO] Selector 'p.entry-title a[href*='rumbominero.com/']' encontr? 0 nodos
+2026-05-05 16:50:53,929 [INFO] Resumen test Rumbo Minero | noticias_modulos=0 | scraper_generico=0
+2026-05-05 16:50:53,937 [INFO] Resultado JSON guardado: D:\workspace_visual_studio_code\rpa_boletin\tests\output\integration\test_rumbominero_resultado.json
+2026-05-05 16:50:53,937 [INFO] === FIN TEST RUMBO MINERO ===

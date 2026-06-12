@@ -1,0 +1,1 @@
+"""Configuración del paquete boletin."""

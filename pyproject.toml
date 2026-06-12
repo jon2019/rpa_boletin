@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rpa-boletin"
+version = "0.1.0"
+description = "RPA de bolet?n minero-energ?tico"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "feedparser==6.0.11",
+  "httpx==0.27.0",
+  "beautifulsoup4==4.12.3",
+  "lxml==5.2.2",
+  "selenium==4.21.0",
+  "webdriver-manager==4.0.1",
+  "easyocr",
+  "Pillow",
+  "numpy",
+  "psycopg2-binary==2.9.9",
+  "anthropic==0.28.0",
+  "APScheduler==3.10.4",
+  "Jinja2==3.1.4",
+  "python-dotenv==1.0.1",
+  "portalocker",
+  "tabulate",
+  "playwright-stealth",
+  "curl_cffi",
+  "browser-cookie3",
+  "capsolver",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.pytest.ini_options]
+norecursedirs = ["tests/helper", "tests/output", ".venv", "logs"]
+

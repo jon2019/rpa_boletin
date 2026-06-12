@@ -1,0 +1,23 @@
+{
+  "timestamp_inicio": "2026-05-05 16:39:47",
+  "target_url": "https://www.rumbominero.com",
+  "flaresolverr_url": "http://127.0.0.1:8191/v1",
+  "status": "error",
+  "error": "Server error '500 Internal Server Error' for url 'http://127.0.0.1:8191/v1'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/500",
+  "flaresolverr_status": null,
+  "flaresolverr_message": null,
+  "solution_status_code": null,
+  "solution_url": null,
+  "solution_title": null,
+  "solution_user_agent": null,
+  "cookies_count": 0,
+  "challenge_persistente": null,
+  "selectores": [],
+  "noticias_encontradas": 0,
+  "noticias_preview": [],
+  "scraper_generico_encontradas": 0,
+  "scraper_generico_preview": [],
+  "html_guardado": null,
+  "screenshot_guardado": null,
+  "timestamp_fin": "2026-05-05 16:42:54"
+}
