@@ -25,10 +25,12 @@ dependencies = [
   "python-dotenv==1.0.1",
   "portalocker",
   "tabulate",
+  "playwright==1.58.0",
   "playwright-stealth",
   "curl_cffi",
   "browser-cookie3",
   "capsolver",
+  "undetected-chromedriver==3.5.5",
 ]
 
 [tool.setuptools]
