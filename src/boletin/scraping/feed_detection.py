@@ -48,6 +48,43 @@ def normalize_extracted_text(text: str | None) -> str:
     return " ".join(cleaned.split())
 
 
+_TITLE_BYLINE_SUFFIX_RE = re.compile(
+    r"\.{2,3}\s*POR\s+[A-ZÁÉÍÓÚÑ\s]+-\s*\d{1,2}\s+[A-ZÁÉÍÓÚÑ]{3,4}\s+\d{4}\s*$",
+    re.IGNORECASE,
+)
+
+
+def strip_title_overflow(titulo: str) -> str:
+    """Recorta texto de cuerpo/firma que algunos feeds RSS mal formados
+    concatenan al final del título (p.ej. '... POR NOMBRE - DD MES AAAA')."""
+    return _TITLE_BYLINE_SUFFIX_RE.sub("", titulo).strip()
+
+
+def fetch_article_title(url: str, timeout: float = 8.0) -> str:
+    """Obtiene el título real de un artículo desde su HTML (og:title o <h1>).
+
+    Se usa como fallback cuando el feed RSS viene mal formado (bozo) y
+    feedparser puede haber fusionado el <title> con texto del cuerpo/firma.
+    """
+    try:
+        r = httpx.get(
+            url, timeout=timeout, follow_redirects=True,
+            headers={"User-Agent": "Mozilla/5.0"},
+        )
+        if r.status_code != 200:
+            return ""
+        soup = BeautifulSoup(r.text, "html.parser")
+        og = soup.find("meta", property="og:title")
+        if og and og.get("content"):
+            return normalize_extracted_text(og["content"])
+        h1 = soup.find("h1")
+        if h1:
+            return normalize_extracted_text(h1.get_text(" ", strip=True))
+    except Exception as exc:
+        logger.warning("No se pudo obtener título real de %s: %s", url, exc)
+    return ""
+
+
 def detectar_feed(url_base: str) -> str | None:
     """Intenta detectar automáticamente un feed RSS/Atom en un sitio."""
     rutas = ["/feed/", "/rss/", "/rss.xml", "/atom.xml", "/feed.xml"]
@@ -97,7 +134,7 @@ def parse_date(raw_date) -> str:
 
 def build_news_item(titulo, url, resumen, fecha_raw, fuente, pais, url_fuente="") -> dict:
     return {
-        "titulo": normalize_extracted_text(titulo),
+        "titulo": strip_title_overflow(normalize_extracted_text(titulo)),
         "url": url.strip() if url else "",
         "url_fuente": url_fuente,
         "resumen": normalize_extracted_text(resumen),

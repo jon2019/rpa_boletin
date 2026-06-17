@@ -78,11 +78,7 @@
                   <!-- Meta -->
                   <div style="font-size:11px; color:#444444; line-height:1.8; margin-bottom:8px; font-family:Arial, sans-serif;">
                     <span style="color:#555555; font-weight:bold;">Fuente:</span>
-                    <strong style="color:#1a1a1a;">{{ n.fuente }}</strong><br>
-                    {% if n.resumen %}
-                    <span style="color:#555555; font-weight:bold;">Resumen:</span>
-                    {{ n.resumen[:180] }}{% if n.resumen|length > 180 %}...{% endif %}
-                    {% endif %}
+                    <strong style="color:#1a1a1a;">{{ n.fuente }}</strong>
                   </div>
 
                   <!-- Fecha -->
@@ -122,12 +118,7 @@
                   <!-- Meta -->
                   <div style="font-size:11px; color:#444444; line-height:1.8; margin-bottom:8px; font-family:Arial, sans-serif;">
                     <span style="color:#555555; font-weight:bold;">Source:</span>
-                    <strong style="color:#1a1a1a;">{{ n.fuente }}</strong><br>
-                    {% set res = n.resumen_en or n.resumen %}
-                    {% if res %}
-                    <span style="color:#555555; font-weight:bold;">Summary:</span>
-                    {{ res[:180] }}{% if res|length > 180 %}...{% endif %}
-                    {% endif %}
+                    <strong style="color:#1a1a1a;">{{ n.fuente }}</strong>
                   </div>
 
                   <!-- Date -->

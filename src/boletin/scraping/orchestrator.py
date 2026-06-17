@@ -34,7 +34,10 @@ from boletin.scraping.extraction import (
 from boletin.scraping.flaresolverr import (
     scrape_with_flaresolverr_sync as _scrape_with_flaresolverr_sync,
 )
-from boletin.scraping.feed_detection import build_news_item as _noticia
+from boletin.scraping.feed_detection import (
+    build_news_item as _noticia,
+    fetch_article_title as _fetch_article_title,
+)
 from boletin.scraping.login import scrape_with_login as _scrape_with_login
 from boletin.scraping.source_rules import (
     browser_required_for_source as _browser_required_for_source,
@@ -77,11 +80,21 @@ def _fetch_rss(source: dict) -> tuple[list[dict], bool, str]:
             logger.warning(f"Feed {source['rss']} devolvió status {getattr(feed, 'status', 'desconocido')}")
         if feed.bozo and not feed.entries:
             raise ValueError(f"Feed malformado: {getattr(feed, 'bozo_exception', 'desconocido')}")
+        feed_malformado = bool(feed.bozo)
+        if feed_malformado:
+            logger.warning(
+                "Feed %s mal formado (bozo=%s): %s — se validará el título de cada nota contra el HTML",
+                source["rss"], feed.bozo, getattr(feed, "bozo_exception", "desconocido"),
+            )
         noticias = []
         max_chars = _get_scraping_settings().rss_resumen_max_chars
         for entry in feed.entries[:30]:
             titulo = entry.get("title", "")
             url = entry.get("link", "")
+            if feed_malformado and titulo and url:
+                titulo_real = _fetch_article_title(url)
+                if titulo_real:
+                    titulo = titulo_real
             resumen = ""
             if "content" in entry and entry["content"]:
                 resumen = entry["content"][0].get("value", "")
