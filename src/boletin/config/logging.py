@@ -2,18 +2,24 @@
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
+import os
+from datetime import datetime
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 import logging
 from pathlib import Path
 import sys
 
 
-
 def build_log_file_path(project_root: Path) -> Path:
-    """Construye la ruta del log diario en UTC."""
+    """Construye la ruta del log diario usando la timezone local configurada en TIMEZONE."""
+    tz_name = os.getenv("TIMEZONE", "America/Santiago")
+    try:
+        tz = ZoneInfo(tz_name)
+    except ZoneInfoNotFoundError:
+        tz = ZoneInfo("America/Santiago")
     log_dir = project_root / "logs"
     log_dir.mkdir(parents=True, exist_ok=True)
-    return log_dir / f"boletin_{datetime.now(tz=timezone.utc).strftime('%Y-%m-%d')}.log"
+    return log_dir / f"boletin_{datetime.now(tz=tz).strftime('%Y-%m-%d')}.log"
 
 
 

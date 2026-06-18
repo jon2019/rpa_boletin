@@ -6,7 +6,9 @@ import io
 import logging
 import os
 import random
+import shutil
 import subprocess
+import tempfile
 import time
 
 import numpy as np
@@ -44,7 +46,7 @@ try:
     import easyocr as _easyocr
 
     _EASYOCR_AVAILABLE = True
-except ImportError:
+except Exception:
     _EASYOCR_AVAILABLE = False
 
 _easyocr_reader = None
@@ -436,7 +438,9 @@ def scrape_visible_chrome_sync(source: dict) -> list[dict]:
     """
     Fallback visible específico para fuentes que en modo headless quedan bloqueadas.
     """
+    tmp_dir = tempfile.mkdtemp(prefix="boletin_visible_")
     options = Options()
+    options.add_argument(f"--user-data-dir={tmp_dir}")
     options.add_argument("--start-maximized")
     options.add_argument("--disable-blink-features=AutomationControlled")
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
@@ -469,6 +473,7 @@ def scrape_visible_chrome_sync(source: dict) -> list[dict]:
     finally:
         if driver is not None:
             driver.quit()
+        shutil.rmtree(tmp_dir, ignore_errors=True)
 
 
 def scrape_with_playwright_stealth(source: dict) -> list[dict]:
@@ -589,6 +594,7 @@ def scrape_fallback_sync(source: dict, flaresolverr_scraper=None) -> list[dict]:
             source["name"],
         )
 
+    tmp_dir = tempfile.mkdtemp(prefix="boletin_uc_")
     options = Options()
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
@@ -608,6 +614,7 @@ def scrape_fallback_sync(source: dict, flaresolverr_scraper=None) -> list[dict]:
                     headless=True,
                     options=options,
                     version_main=chrome_major,
+                    user_data_dir=tmp_dir,
                 )
             except Exception as e:
                 logger.warning(
@@ -617,7 +624,7 @@ def scrape_fallback_sync(source: dict, flaresolverr_scraper=None) -> list[dict]:
                     e,
                 )
         if driver is None:
-            driver = uc.Chrome(headless=True, options=options)
+            driver = uc.Chrome(headless=True, options=options, user_data_dir=tmp_dir)
         driver.get(get_scrape_target_url(source))
         resolved, state = wait_for_browser_content(driver, source, timeout_seconds=20)
         if not resolved:
@@ -636,3 +643,4 @@ def scrape_fallback_sync(source: dict, flaresolverr_scraper=None) -> list[dict]:
     finally:
         if driver is not None:
             driver.quit()
+        shutil.rmtree(tmp_dir, ignore_errors=True)

@@ -22,6 +22,7 @@ Variables de entorno:
 
 from __future__ import annotations
 
+import atexit
 import json
 import logging
 import os
@@ -130,6 +131,28 @@ def _chromedriver_cache_path() -> Path:
     return Path.home() / ".local" / "share" / "undetected_chromedriver" / "chromedriver"
 
 
+def _find_pid_locking(file_path: Path, log: logging.Logger) -> int | None:
+    """Encuentra el PID del proceso que tiene bloqueado un archivo usando handle64.exe."""
+    from boletin.config.settings import PROJECT_ROOT
+    handle_exe = PROJECT_ROOT / "handle" / "handle64.exe"
+    if not handle_exe.exists():
+        log.debug("FlareSolverr cleanup: handle64.exe no encontrado en %s", handle_exe)
+        return None
+    try:
+        result = subprocess.run(
+            [str(handle_exe), "/accepteula", "-nobanner", str(file_path)],
+            capture_output=True, text=True,
+        )
+        for line in result.stdout.splitlines():
+            parts = line.split()
+            for i, part in enumerate(parts):
+                if part.lower() == "pid:" and i + 1 < len(parts):
+                    return int(parts[i + 1])
+    except Exception as exc:
+        log.debug("FlareSolverr cleanup: handle64 falló — %s", exc)
+    return None
+
+
 def _cleanup_before_launch(log: logging.Logger) -> None:
     """
     Limpia residuos de ejecuciones anteriores de FlareSolverr que bloquean el arranque.
@@ -138,40 +161,43 @@ def _cleanup_before_launch(log: logging.Logger) -> None:
     Si una instancia previa murió sin cerrar el driver, el archivo queda bloqueado y
     FlareSolverr crashea con PermissionError [Errno 13] al siguiente intento de arranque.
 
-    Solución:
-      1. Matar procesos chromedriver.exe colgados (los que tienen el lock del archivo)
-      2. Eliminar el archivo bloqueado del cache para que FlareSolverr lo regenere limpio
+    Solución: identificar con handle64.exe el proceso ESPECÍFICO que tiene el lock
+    y matar solo ese — nunca un kill masivo de chromedriver.exe que afecte otros RPAs.
     """
-    # ── 1. Matar procesos chromedriver colgados ───────────────────────────────
-    if os.name == "nt":
-        result = subprocess.run(
-            ["taskkill", "/F", "/IM", "chromedriver.exe", "/T"],
-            capture_output=True, text=True,
-        )
-        # returncode 128 = "no se encontró el proceso" → no hay nada colgado, OK
-        if result.returncode == 0:
-            log.info("FlareSolverr cleanup: procesos chromedriver.exe terminados")
-            time.sleep(1)   # dar tiempo al SO para liberar el file handle
-    else:
-        subprocess.run(["pkill", "-f", "chromedriver"], capture_output=True)
-        time.sleep(1)
-
-    # ── 2. Eliminar el archivo bloqueado del cache ────────────────────────────
     cache = _chromedriver_cache_path()
     if not cache.exists():
+        return
+
+    # Intentar eliminar sin matar nada — si no hay lock, alcanza con esto
+    try:
+        cache.unlink()
+        log.info("FlareSolverr cleanup: chromedriver.exe eliminado del cache (%s)", cache)
+        return
+    except PermissionError:
+        pass  # archivo bloqueado — buscar el proceso específico
+
+    # Identificar y matar únicamente el proceso que tiene el lock
+    pid = _find_pid_locking(cache, log)
+    if pid:
+        try:
+            os.kill(pid, 9)
+            log.info("FlareSolverr cleanup: PID %s terminado (tenía lock en chromedriver cache)", pid)
+            time.sleep(1)
+        except Exception as exc:
+            log.warning("FlareSolverr cleanup: no se pudo terminar PID %s — %s", pid, exc)
+    else:
+        log.warning(
+            "FlareSolverr cleanup: %s bloqueado pero no se identificó el proceso. "
+            "Si FlareSolverr falla con PermissionError, cerrá manualmente el chromedriver colgado.",
+            cache,
+        )
         return
 
     try:
         cache.unlink()
         log.info("FlareSolverr cleanup: chromedriver.exe eliminado del cache (%s)", cache)
-    except PermissionError as exc:
-        log.warning(
-            "FlareSolverr cleanup: no se pudo eliminar %s — %s. "
-            "Si el arranque falla con PermissionError, cerrá manualmente los procesos Chrome.",
-            cache, exc,
-        )
     except Exception as exc:
-        log.warning("FlareSolverr cleanup: error inesperado eliminando cache — %s", exc)
+        log.warning("FlareSolverr cleanup: no se pudo eliminar %s — %s", cache, exc)
 
 
 def _launch_process(exe_path: Path, log: logging.Logger) -> subprocess.Popen | None:
@@ -200,6 +226,30 @@ def _kill(proc: subprocess.Popen | None, log: logging.Logger) -> None:
             log.debug("FlareSolverr: proceso terminado (PID %s)", proc.pid)
     except Exception:
         pass
+
+
+def _kill_pid(pid: int, log: logging.Logger) -> None:
+    try:
+        os.kill(pid, 9)
+        log.debug("FlareSolverr: proceso reutilizado terminado (PID %s)", pid)
+    except Exception:
+        pass
+
+
+def _find_flaresolverr_pid() -> int | None:
+    """Busca el PID de un proceso flaresolverr.exe corriendo en el sistema."""
+    try:
+        result = subprocess.run(
+            ["tasklist", "/FI", "IMAGENAME eq flaresolverr.exe", "/FO", "CSV", "/NH"],
+            capture_output=True, text=True,
+        )
+        for line in result.stdout.strip().splitlines():
+            parts = line.strip('"').split('","')
+            if len(parts) >= 2 and parts[0].lower() == "flaresolverr.exe":
+                return int(parts[1])
+    except Exception:
+        pass
+    return None
 
 
 def _wait_until_ready(
@@ -284,6 +334,7 @@ def bootstrap_flaresolverr(log: logging.Logger | None = None) -> bool:
         if prev_pid and _pid_alive(prev_pid):
             if _is_alive(cfg.url):
                 _write_heartbeat(prev_pid, "running", "reutilizado al reiniciar pipeline")
+                atexit.register(lambda: _kill_pid(prev_pid, _log))
                 _log.info("─" * 60)
                 _log.info("[ FLARESOLVERR OK ] proceso previo reutilizado | PID %s | %s", prev_pid, cfg.url)
                 _log.info("─" * 60)
@@ -299,6 +350,12 @@ def bootstrap_flaresolverr(log: logging.Logger | None = None) -> bool:
             _write_heartbeat(prev_pid, "stuck", "terminado por no responder HTTP")
     else:
         _log.info("Sin heartbeat previo — primera ejecución o archivo eliminado.")
+        if _is_alive(cfg.url):
+            pid = _find_flaresolverr_pid()
+            _log.info("FlareSolverr ya responde en %s sin heartbeat — recuperando (PID %s)", cfg.url, pid)
+            _write_heartbeat(pid, "running", "recuperado sin heartbeat")
+            atexit.register(lambda: _kill_pid(pid, _log))
+            return True
 
     # ── 2. Verificar que el ejecutable exista ─────────────────────────────────
     if not exe.exists():
@@ -329,6 +386,7 @@ def bootstrap_flaresolverr(log: logging.Logger | None = None) -> bool:
         _write_heartbeat(proc.pid, "starting", f"intento {attempt}/{_MAX_LAUNCH_ATTEMPTS}")
 
         if _wait_until_ready(proc, cfg.url, cfg.startup_timeout_s, _log):
+            atexit.register(_kill, proc, _log)
             return True
 
         reason = (
