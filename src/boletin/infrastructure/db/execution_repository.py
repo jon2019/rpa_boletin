@@ -333,6 +333,12 @@ def resumen_ejecucion_hoy(fecha: date | None = None) -> dict:
                         ef.error_detalle IS NOT NULL
                         AND TRIM(ef.error_detalle) <> ''
                       )
+                  AND NOT (
+                        LOWER(ef.error_detalle) LIKE '%%sin noticias%%'
+                        OR LOWER(ef.error_detalle) LIKE '%%no encontr%%'
+                        OR LOWER(ef.error_detalle) LIKE '%%no devolvi%%'
+                        OR LOWER(ef.error_detalle) LIKE '%%no obtuvo noticias%%'
+                      )
                 ORDER BY f.pais, f.nombre
                 """,
                 (fecha_check,),

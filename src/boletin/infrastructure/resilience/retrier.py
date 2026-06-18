@@ -58,6 +58,9 @@ class ErrorFuente:
     tecnologias: str = "RSS"
 
 
+_SIN_NOTICIAS = ("sin noticias", "no encontr", "no devolvi", "no obtuvo noticias")
+
+
 class ErrorCollector:
     """
     Acumula errores durante las iteraciones de fuentes.
@@ -77,6 +80,9 @@ class ErrorCollector:
         intentos: int,
         tecnologias: str = "RSS",
     ) -> None:
+        if any(p in (mensaje or "").lower() for p in _SIN_NOTICIAS):
+            logger.info("[%s] Sin noticias — omitido del reporte de errores", fuente)
+            return
         err = ErrorFuente(
             fuente=fuente,
             url=url,
